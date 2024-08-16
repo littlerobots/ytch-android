@@ -1,0 +1,4 @@
+<resources>
+
+    <style name="Theme.Atvytch" parent="@android:style/Theme.DeviceDefault.NoActionBar" />
+</resources>
