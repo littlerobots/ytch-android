@@ -43,8 +43,7 @@ class MainActivity : ComponentActivity() {
                   const oldGetList = window.getList
                   window.getList = () => {
                     toggleMute();
-                    toggleControl();
-                    control.style.opacity = "0";
+                    control.remove()
                     return oldGetList()
                   }
                 });
