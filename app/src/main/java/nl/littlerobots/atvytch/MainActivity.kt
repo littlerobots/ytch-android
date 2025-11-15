@@ -17,11 +17,18 @@ package nl.littlerobots.atvytch
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
+import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
+import android.webkit.WebResourceResponse
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
 import androidx.webkit.JavaScriptReplyProxy
+import androidx.webkit.WebViewClientCompat
 import androidx.webkit.WebViewCompat
+import androidx.webkit.WebViewFeature
 
 class MainActivity : ComponentActivity() {
     private var channelProxy: JavaScriptReplyProxy? = null
@@ -57,12 +64,12 @@ class MainActivity : ComponentActivity() {
                 }
                 remote.postMessage("ready");
             """.trimIndent(),
-            setOf("https://ytch.xyz")
+            setOf("https://ytch.tv")
         )
         WebViewCompat.addWebMessageListener(
-            webView, "remote", setOf("https://ytch.xyz")
+            webView, "remote", setOf("https://ytch.tv")
         ) { _, _, _, _, replyProxy -> channelProxy = replyProxy }
-        webView.loadUrl("https://ytch.xyz")
+        webView.loadUrl("https://ytch.tv")
     }
 
     @SuppressLint("RestrictedApi", "RequiresFeature")
